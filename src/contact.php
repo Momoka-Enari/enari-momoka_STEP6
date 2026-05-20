@@ -26,23 +26,23 @@
 <table border = "3">
     <tr>
         <th>お名前</th>
-        <th><input type="text" name="name" id="name" size="40"></th>
+        <td><input type="text" name="name" id="name" size="40"></td>
     </tr>
     <tr>
         <th>会社名</th>
-        <th><input type="text" name="companyName" id="companyName" size="40"></th>
+        <td><input type="text" name="companyName" id="companyName" size="40"></td>
     </tr>
     <tr>
         <th>メールアドレス</th>
-        <th><input type="text" name="email" id="email" size="40"></th>
+        <td><input type="text" name="email" id="email" size="40"></td>
     </tr>
     <tr>
         <th>年齢</th>
-        <th><input type="text" name="age" id="age" size="40"></th>
+        <td><input type="text" name="age" id="age" size="40"></td>
     </tr>
     <tr>
         <th>お問い合わせ内容</th>
-        <th><textarea name="message" id="message" cols="30" rows="5"></textarea></th>
+        <td><textarea name="message" id="message" cols="30" rows="5"></textarea></td>
     </tr>
 </table>
 <div class="submit-area">
@@ -54,7 +54,7 @@
 
 <div id="footer">
     <p>下のボタンを押すとfooterの背景色が変わります。</p>
-    <input type="button" value="押してみてね！" onclick="changeBackground()">
+    <input type="button" value="押してみてね！" id="colorButton">
 </div>
 
 

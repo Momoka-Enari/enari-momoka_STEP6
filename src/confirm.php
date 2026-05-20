@@ -6,14 +6,26 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 }
 
 $name    = $_POST["name"]        ?? "";
-$company = $_POST["companyName"] ?? "";
+$companyName = $_POST["companyName"] ?? "";
 $email   = $_POST["email"]       ?? "";
 $age     = $_POST["age"]         ?? "";
 $message = $_POST["message"]     ?? "";
 
+if (
+    $name === '' ||
+    $companyName === '' ||
+    $email === '' ||
+    $age === '' ||
+    $message === ''
+    ) {
+    header("Location: contact.php");
+    exit;
+}
+
 function h($s) { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
 ?>
 
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -39,18 +51,18 @@ function h($s) { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
     <div id="main">
     <form action="send.php" method="post" onsubmit="return confirmSubmit()">
 <table border = "3">
-    <tr><th>お名前</th><td id="name"><?= $name ?></td></tr>
-    <tr><th>会社名</th><td id="company"><?= $company ?></td></tr>
-    <tr><th>メールアドレス</th><td id="email"><?= $email ?></td></tr>
-    <tr><th>年齢</th><td id="age"><?= $age ?></td></tr>
-    <tr><th>お問い合わせ内容</th><td id="message"><?= nl2br($message) ?></td></tr>
+    <tr><th>お名前</th><td id="name"><?= h($name) ?></td></tr>
+    <tr><th>会社名</th><td id="company"><?= h($companyName) ?></td></tr>
+    <tr><th>メールアドレス</th><td id="email"><?= h($email) ?></td></tr>
+    <tr><th>年齢</th><td id="age"><?= h($age) ?></td></tr>
+    <tr><th>お問い合わせ内容</th><td id="message"><?= nl2br(h($message)) ?></td></tr>
 </table>
 
-    <input type="hidden" name="name" value="<?= htmlspecialchars($name) ?>">
-    <input type="hidden" name="companyName" value="<?= htmlspecialchars($company) ?>">
-    <input type="hidden" name="email" value="<?= htmlspecialchars($email) ?>">
-    <input type="hidden" name="age" value="<?= htmlspecialchars($age) ?>">
-    <input type="hidden" name="message" value="<?= htmlspecialchars($message) ?>">
+    <input type="hidden" name="name" value="<?= h($name) ?>">
+    <input type="hidden" name="companyName" value="<?= h($companyName) ?>">
+    <input type="hidden" name="email" value="<?= h($email) ?>">
+    <input type="hidden" name="age" value="<?= h($age) ?>">
+    <input type="hidden" name="message" value="<?= h($message) ?>">
 <br>
 <div class="button-area">
     <input type="button" value="戻る" onclick="history.back()">

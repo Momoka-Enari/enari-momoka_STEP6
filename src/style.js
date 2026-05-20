@@ -1,4 +1,5 @@
 function validateForm() {
+
     let name = document.getElementById('name').value;
     let company = document.getElementById('companyName').value;
     let email = document.getElementById('email').value;
@@ -7,10 +8,17 @@ function validateForm() {
 
     if (name === "" || company === "" || email === "" || age === "" || message === "") {
         alert("必須項目が未入力です。入力内容をご確認ください。");
-        return false; //送信ストップ
-}
+        return false;
+    }
 
-    return true; //OKなら送信
+    return confirm(
+        "確認画面に進みます。よろしいですか？ \n\n" +
+        "お名前：" + name + "\n" +
+        "会社名：" + company + "\n" +
+        "メール：" + email + "\n" +
+        "年齢：" + age + "\n" +
+        "お問い合わせ内容：" + message + "\n"
+        );
 }
 
     function confirmSubmit() {
@@ -31,3 +39,8 @@ function changeBackground() {
         currentIndex = 0;
     }
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    let button = document.querySelector("#colorButton");
+    button.addEventListener("click", changeBackground);
+})
