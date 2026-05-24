@@ -1,7 +1,7 @@
 <?php
 // POSTメソッドでアクセスされた場合のみ値を受け取る
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    header("Location: contact.php");
+    header("Location: contact.php?error=empty");
     exit;
 }
 
@@ -33,9 +33,9 @@ function h($s) { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="header">
+<header id="header">
     <h2>お問い合わせフォーム - 確認画面</h2>
-    </div>
+</header>
 <div id="container">
     <div id="aside">
     <nav>
@@ -52,7 +52,7 @@ function h($s) { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
     <form action="send.php" method="post" onsubmit="return confirmSubmit()">
 <table border = "3">
     <tr><th>お名前</th><td id="name"><?= h($name) ?></td></tr>
-    <tr><th>会社名</th><td id="company"><?= h($companyName) ?></td></tr>
+    <tr><th>会社名</th><td id="companyName"><?= h($companyName) ?></td></tr>
     <tr><th>メールアドレス</th><td id="email"><?= h($email) ?></td></tr>
     <tr><th>年齢</th><td id="age"><?= h($age) ?></td></tr>
     <tr><th>お問い合わせ内容</th><td id="message"><?= nl2br(h($message)) ?></td></tr>
@@ -79,7 +79,7 @@ function h($s) { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
 <script>
 function confirmSubmit() {
     let name = document.getElementById("name").innerText;
-    let company = document.getElementById("company").innerText;
+    let company = document.getElementById("companyName").innerText;
     let email = document.getElementById("email").innerText;
     let age = document.getElementById("age").innerText;
     let message = document.getElementById("message").innerText;

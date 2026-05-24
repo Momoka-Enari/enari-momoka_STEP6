@@ -47,9 +47,8 @@ $error_msg = 'メールアドレスの形式が正しくありません。';
 
     $send_result = mb_send_mail($to, $subject, $body);
 
-    if (!$send_result) {
-        $error_msg = 'メール送信に失敗しました。';
-    $error_msg = 'ログ保存に失敗しました（権限の可能性があります）。';
+if (!$send_result) {
+    $error_msg = 'メール送信に失敗しました。';
 } else {
     $send_result = true;
 }
@@ -69,7 +68,7 @@ $error_msg = 'メールアドレスの形式が正しくありません。';
 <p>お問い合わせが送信されました。ありがとうございます！</p>
 <?php else: ?>
 <p>送信に失敗しました。</p>
-<pre><?= h($error_msg ?: 'unknown error') ?></pre>
+<!-- <pre><?= h($error_msg ?: 'unknown error') ?></pre> -->
 <?php endif; ?>
 
 <p><a href="contact.php">お問い合わせフォームに戻る</a></p>

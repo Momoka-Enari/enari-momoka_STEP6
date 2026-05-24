@@ -6,9 +6,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="header">
+<header id="header">
 <h2>お問い合わせフォーム</h2>
-</div>
+</header>
 <div id="container">
     <div id="aside">
     <nav>
@@ -21,28 +21,39 @@
     </ul>
     </nav>
     </div>
-    <div id="main">
+
+<div id="main">
     <form action="confirm.php" method="post" onsubmit="return validateForm()">
 <table border = "3">
     <tr>
         <th>お名前</th>
-        <td><input type="text" name="name" id="name" size="40"></td>
+        <td><input type="text" name="name" id="name" size="40">
+        <label id="nameError" class="errorMessage"></label>
+        </td>
     </tr>
     <tr>
         <th>会社名</th>
-        <td><input type="text" name="companyName" id="companyName" size="40"></td>
+        <td><input type="text" name="companyName" id="companyName" size="40">
+        <label id="companyError" class="errorMessage"></label>
+        </td>
     </tr>
     <tr>
         <th>メールアドレス</th>
-        <td><input type="text" name="email" id="email" size="40"></td>
+        <td><input type="text" name="email" id="email" size="40">
+        <label id="emailError" class="errorMessage"></label>
+        </td>
     </tr>
     <tr>
         <th>年齢</th>
-        <td><input type="text" name="age" id="age" size="40"></td>
+        <td><input type="text" name="age" id="age" size="40">
+        <label id="ageError" class="errorMessage"></label>
+        </td>
     </tr>
     <tr>
         <th>お問い合わせ内容</th>
-        <td><textarea name="message" id="message" cols="30" rows="5"></textarea></td>
+        <td><textarea name="message" id="message" cols="30" rows="5"></textarea>
+        <label id="messageError" class="errorMessage"></label>
+        </td>
     </tr>
 </table>
 <div class="submit-area">
@@ -52,10 +63,10 @@
 </div>
 </div>
 
-<div id="footer">
+<footer id="footer">
     <p>下のボタンを押すとfooterの背景色が変わります。</p>
     <input type="button" value="押してみてね！" id="colorButton">
-</div>
+</footer>
 
 
 <script src="style.js"></script>
